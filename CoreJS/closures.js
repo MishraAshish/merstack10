@@ -19,7 +19,6 @@ function Account(name, age) {
     var accountBalance = "2000$"; //private
     var password = "xyzm9asd"; //private
 
-
     var Child = function(accountnumber, getBalance, isAdmin) {
         var retObj = {
             //name : name //short hand : if the key and value from the variable we are reading are same, then we refer to one
@@ -36,7 +35,6 @@ function Account(name, age) {
             accountBalance
         }
 
-        
         return getBalance ? retObjBal : retObj;
     }
 
