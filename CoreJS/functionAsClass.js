@@ -29,3 +29,15 @@ objOfFuncConstructor.getHobbies = function (params) {
 }
 
 objOfFuncConstructor.getHobbies()
+
+//override get user details in -objOfFuncConstructor and from this return address as well
+
+objOfFuncConstructor.getUserDetails = function (isAdmin) {
+    return {
+        name : this.name,
+        age : this.age,
+        address : this.address
+    }
+}
+
+objOfFuncConstructor.getUserDetails()
