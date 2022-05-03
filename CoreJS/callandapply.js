@@ -13,9 +13,9 @@ function PrintName(param1, param2, param3) {
     console.log(param3)
     return "Print Name Executed!!"
 }
-PrintName.call(null,"Executing Session Info","Param2","Param3")
-PrintName.call(SessionInfo,"Executing Session Info","Param2","Param3")
-PrintName.call(SessionInfo2,"Executing Session Info2","Param2","Param3")
+// PrintName.call(null,"Executing Session Info","Param2","Param3")
+// PrintName.call(SessionInfo,"Executing Session Info","Param2","Param3")
+// PrintName.call(SessionInfo2,"Executing Session Info2","Param2","Param3")
 
 // Apply : is used the same way call is used but, we can pass the parameters in the form of array
 // Apply : is the inbuilt method used to change the context of a function at runtime, but it accepts function parameters in array format
@@ -39,6 +39,20 @@ function GetVehicleInfo(authorised, noOfWheels, crashTest, highSpeed, countryMak
         Vehicle countryMake ${countryMake}
     `)
 }
+//GetVehicleInfo.apply(BMW,["Yes","5","4","Yes","US"])
+//GetVehicleInfo.apply(SomeCar,["Yes","5","4","Yes","India"])
 
-GetVehicleInfo.apply(BMW,["Yes","5","4","Yes","US"])
-GetVehicleInfo.apply(SomeCar,["Yes","5","4","Yes","India"])
+
+var User = {
+    name : "some name",
+    getName : function () {
+        console.log("this ", this)
+        console.log("name - outer ", this.name);  
+        
+        setTimeout(function () {
+            console.log("name - inner after one second ", this.name)
+        }, 1000)
+    }
+}
+
+User.getName()
