@@ -47,10 +47,11 @@ var User = {
     name : "some name",
     getName : function () {
         console.log("this ", this)
-        console.log("name - outer ", this.name);  
+        //console.log("name - outer ", this.name);  
         
         setTimeout(function () {
-            console.log("name - inner after one second ", this.name)
+            //console.log("name - inner after one second ", this.name)
+            console.log("this ", this)
         }, 1000)
     }
 }
