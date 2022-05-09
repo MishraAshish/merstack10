@@ -56,3 +56,17 @@ let User = {
 let {name,address:{addres2, address3 = "Some where in california"}} = User;
 
 console.log(addres2, address3, name)
+
+//question :
+
+let StudentTest = {
+    firstname : "Put your name",
+    address : " ??",
+    sessionTopics : {
+        covered1 : "CoreJS",
+        covered2 : "OOJS"
+    }
+}
+
+//print firstname and sessionTopics, 
+//along with that also create a lastname and covered3 as "ES6", without making any change in StudentTest
