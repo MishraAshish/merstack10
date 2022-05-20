@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build",
     "build": "webpack -p && copy src\\index.html dist\\index.html && webpack-dev-server",
-    "build-mac": "webpack -p && cp src/index.html dist/index.html && webpack-dev-server",    
+    "build-mac": "webpack -p && cp src/index.html dist/index.html && webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -24,5 +24,9 @@
     "webpack-dev-server": "3.11.0"
   },
   "author": "MIT",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  }
 }
