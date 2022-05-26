@@ -5,7 +5,13 @@ let DummyComponent = (props) => {
     //props are immutable, as they belong to parent component
     //props.userName = "Toan Ng";//will not be allowed
     let dataFromParent = props;
-    console.log("Dummy Component")
+    console.log("Dummy Component");
+
+    //data object to be passed to parent
+    let dataObj = {
+        Session : "MERNStack",
+        Topic : "React"
+    }
     return(
         <>
         <h1>Dummy Component From Common Component</h1>
@@ -14,6 +20,8 @@ let DummyComponent = (props) => {
 
             {props.children && props.children[0]}
             {props.children && props.children[1]}
+            <br/>
+            <button onClick={()=>props.getData(dataObj)} >Click To Pass Data To Parent</button>
         </>
     )
 } 

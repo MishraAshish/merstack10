@@ -5,7 +5,8 @@ import DummyComponent from "./CommonComponents/DummyComponent";
 
 
 //export default class AppComponent extends Component //React.Component 
-//Pure Component contains predefined implementation of ShouldComponentUpate
+
+//Pure Component contains predefined implementation of ShouldComponentUpdate
 export default class AppComponent extends PureComponent
 {
     constructor(props){
@@ -52,6 +53,10 @@ export default class AppComponent extends PureComponent
     //     return true;
     // }
 
+    getChildData = (data)=>{
+        alert("Data from child " + JSON.stringify(data))
+    }
+
     render(){
         console.log("Render in app component")
         let address = "Somewhere on earth"; //js variable
@@ -64,7 +69,7 @@ export default class AppComponent extends PureComponent
                 <FooterComponent></FooterComponent>
                 {/* <DummyComponent userName={"Toan"} userAddress={"Somewhere in US"}/> */}
 
-                <DummyComponent userName={this.state.name} userAddress={this.state.address} >
+                <DummyComponent userName={this.state.name} userAddress={this.state.address} getData={this.getChildData} >
                     {/* <h1>{"The First Header From Parent App Component"}</h1> */}
                     <FooterComponent/>
                     <h2>{"The Second Header From Parent App Component"}</h2>
