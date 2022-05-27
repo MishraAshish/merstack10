@@ -1,6 +1,7 @@
 import React, { Component, PureComponent } from "react"; //React - default import , Component - named import
 import "./app.css"
-import {BrowserRouter as Router, Routes, Redirect, Route} from "react-router-dom";//
+import {BrowserRouter as Router, Routes, Redirect, Route} from "react-router-dom";// browser router from react
+
 import FooterComponent, {pi} from "./CommonComponents/FooterComponent";
 import DummyComponent from "./CommonComponents/DummyComponent";
 import HeaderComponent from "./CommonComponents/HeaderComponent";
@@ -14,14 +15,14 @@ export default class AppComponent extends Component{
     render(){
         return(
             <Router>
-            <HeaderComponent/>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
-            <FooterComponent/>
+                <HeaderComponent/>
+                    <Routes>
+                        <Route path="/" element={<Home  title="Home Component" />} />
+                        <Route path="/home" element={<Home  title="Home Component" />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                <FooterComponent/>
             </Router>
         )
     }

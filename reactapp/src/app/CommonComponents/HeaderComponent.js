@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 let Header = (props)=>{
 
-    //let navigate = useNavigate();
+    let navigate = useNavigate();
 
-    // let func = function(event) {
-    //     event.preventDefault();
+    let func = function(event) {
+        event.preventDefault();
         
-    //     navigate('/about/5000');
-    // }
+        navigate('/about/5000');
+    }
 
     let userName = props.user && props.user.userName ? props.user.userName : ""; 
 
