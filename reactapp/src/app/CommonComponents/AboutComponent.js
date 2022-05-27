@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useState, useEffect} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 
@@ -6,12 +6,12 @@ let About = (props)=>{
     let params = useParams();    
     let param = params["id"] ? params["id"]: "No Params"; 
 
-    // let navigate = useNavigate();
+    let navigate = useNavigate();
 
     let func = function(event) {
         event.preventDefault();
         
-        //navigate('/user');
+        navigate('/user');
     }
 
     return(
