@@ -108,63 +108,65 @@ export default class Home extends PureComponent {
 
         return(      
 
-            <div>
-                <h1>{this.props.title}</h1>
-                <p>{this.state.username}</p>
-                <p>{this.state.address}</p>
-                <br/>
+            <div className={"loadimage form"} style={{backgroundImage: "url(/images/hm_pic4.jpg)"}}>
+            {/* <p>{this.state.name}</p> */}
+            {/* <img src={"./images/hm_pic4.jpg"} /> */}
+            <h1>{this.state.title}</h1>
+            <b className="feature">{"Below Feature's We've Implemented in our project :"}</b>
+            <ul>                     
+                <li>Sign up new users</li>
+                <li>Login existing users.</li>
+                <li>Add products/items to create product collection.</li>
+                <li>Allow user's to add to cart.</li>
+                <li>Save the user's cart.</li>
+                <li>Checkout and pay for items.</li>
+                <li>Allow users to cancel the order.</li>
+                <li>Allow users to reorder the cart.</li>
+                <li>Allow users to give ratings to each product.</li>
+                <li>Have notifications on top right with logout.</li>
+            </ul>
+        </div>
+
+
+            // <div>
+            //     <h1>{this.props.title}</h1>
+            //     <p>{this.state.username}</p>
+            //     <p>{this.state.address}</p>
+            //     <br/>
             
-                <input type={"text"} className="username form form-input" value={this.state.username} 
-                        onChange={this.onchageHandler}></input>
+            //     <input type={"text"} className="username form form-input" value={this.state.username} 
+            //             onChange={this.onchageHandler}></input>
 
-                <input type={"text"} className="address" value={this.state.address} 
-                        onChange={(e)=>{this.setState({ address : e.target.value })}} ></input>
+            //     <input type={"text"} className="address" value={this.state.address} 
+            //             onChange={(e)=>{this.setState({ address : e.target.value })}} ></input>
 
+        
+        //      {/* We are going to create an uncontrolled html form with html elements, 
+        //it is controlled element values are not going to be part of react state */}
 
-                {/* We are going to create an uncontrolled html form with html elements, 
-                it is controlled element values are not going to be part of react state */}
+            //     <form onSubmit={this.handleSubmit} action="/student/formsubmission">
+            //         <label>
+            //                 Session Name:
+            //                 <input type="text" ref={this.inputSession} placeholder="Please enter session"/>
+            //         </label>                    
+            //         <label>
+            //                 Address:
+            //                 <input type="text" ref={this.inputAddress} placeholder="Please enter address"/>
+            //         </label>
 
-                <form onSubmit={this.handleSubmit} action="/student/formsubmission">
-                    <label>
-                            Session Name:
-                            <input type="text" ref={this.inputSession} placeholder="Please enter session"/>
-                    </label>                    
-                    <label>
-                            Address:
-                            <input type="text" ref={this.inputAddress} placeholder="Please enter address"/>
-                    </label>
+            //         <input type="submit" value="Submit" />
 
-                    <input type="submit" value="Submit" />
-
-                    <div>
-                            Session: {this.state.session}
-                            <br/>
-                            New Address: {this.state.newAddress}
-                    </div>
-                </form>
-            </div>
-
-
-
-
-            // <div className={"loadimage form"} style={{backgroundImage: "url(/images/hm_pic4.jpg)"}}>
-            //     {/* <p>{this.state.name}</p> */}
-            //     {/* <img src={"./images/hm_pic4.jpg"} /> */}
-            //     <h1>{this.state.title}</h1>
-            //     <b className="feature">{"Below Feature's We've Implemented in our project :"}</b>
-            //     <ul>                     
-            //         <li>Sign up new users</li>
-            //         <li>Login existing users.</li>
-            //         <li>Add products/items to create product collection.</li>
-            //         <li>Allow user's to add to cart.</li>
-            //         <li>Save the user's cart.</li>
-            //         <li>Checkout and pay for items.</li>
-            //         <li>Allow users to cancel the order.</li>
-            //         <li>Allow users to reorder the cart.</li>
-            //         <li>Allow users to give ratings to each product.</li>
-            //         <li>Have notifications on top right with logout.</li>
-            //     </ul>
+            //         <div>
+            //                 Session: {this.state.session}
+            //                 <br/>
+            //                 New Address: {this.state.newAddress}
+            //         </div>
+            //     </form>
             // </div>
+
+
+
+
 
 
 
