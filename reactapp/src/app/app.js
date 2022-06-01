@@ -8,7 +8,8 @@ import HeaderComponent from "./CommonComponents/HeaderComponent";
 import Home from "./CommonComponents/HomeComponent";
 import About from "./CommonComponents/AboutComponent";
 import NotFound from "./CommonComponents/NotFoundComponent";
-import UserComponent from "./ApplicationComponent/User/Component/UserComponent";
+//import UserComponent from "./ApplicationComponent/User/Component/UserComponent";
+import UserContainer from "./ApplicationComponent/User/Container/UserContainer";
 
 
 export default class AppComponent extends Component{
@@ -20,7 +21,7 @@ export default class AppComponent extends Component{
                     <Routes>
                         <Route path="/" element={<Home  title="Home Component" />} />
                         <Route path="/home" element={<Home  title="Home Component" />} />
-                        <Route path="/user" element={<UserComponent />} />
+                        <Route path="/user" element={<UserContainer />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />} />

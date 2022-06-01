@@ -1,6 +1,8 @@
 let express = require("express");
 let port = process.env.PORT || 9000;//use port 9000 unless there exists a preconfigured port 
 
+let cors = require("cors");
+
 let app = express();//instantiating express application 
 let defaultRouter = require("./routes/defaultRoute");
 //mounting of express application
@@ -10,9 +12,12 @@ let adminRouter = require("./routes/adminRouter");
 let userApp = express();
 let userRouter = require("./routes/userRouter");
 
+app.use(cors()) //setting cross origin access to true in our express api's
 // serve static files like images css using static middleware
 //app.use("/static", express.static("public"))
 app.use("/static", express.static("public"))
+
+app.use(express.json({limit:'2mb', extended:false})); //json middle-ware for setting request content type to json in body
 
 app.use("/admin", adminApp);
 adminApp.use("/", adminRouter)

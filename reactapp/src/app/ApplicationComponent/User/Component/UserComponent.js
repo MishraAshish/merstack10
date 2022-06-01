@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from "react";
-
+//import { connect } from "react-redux";
 
 export default class UserComponent extends Component{
     constructor(props){
         super(props);
         this.state = {
-            userName : "default",//props.user.userName,
-            password : "default",//props.user.password,
-            street : "default",//props.user.street,
-            mobile : "default"//props.user.mobile,
+            userName : props.user.userName,
+            password : props.user.password,
+            street : props.user.street,
+            mobile : props.user.mobile,
         }
     }
 
@@ -44,8 +44,10 @@ export default class UserComponent extends Component{
 
     loginUser = ()=>{
         alert("we are going to sign in below user - " +JSON.stringify(this.state))
-        //this.props.addUserToStore(this.state);
-        //this.props.signInUpUserDB(this.state);
+        
+        //this.props.addUser(this.state)
+
+        this.props.signInServer(this.state);
     }
 
     render(){
@@ -89,3 +91,13 @@ export default class UserComponent extends Component{
         )
     }
 }
+
+
+
+// let mapStateToProps = (state)=>{
+//     return{
+//         user : state.userReducer.user
+//     }
+// }
+
+// export default connect(mapStateToProps)(UserComponent);
