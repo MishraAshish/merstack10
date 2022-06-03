@@ -28,9 +28,10 @@ let Header = (props)=>{
     )
 }
 
-let mapStateToProps = (state)=>{
+//mapStateToProps - to make subscriber - allows us to access state from store (userReducer)
+let mapStateToProps = (state)=>{//state is store
     return{
-        user : state.userReducer.user
+        user : state.userReducer.user //in header when we do props.user
     }
 }
 
