@@ -10,7 +10,7 @@ import promise from "redux-promise-middleware";//is used to make calls to the se
 //axios - another library to make server calls with async await
 
 import userReducer from "./user/userReducer";
-//import productReducer from "./product/productReducer";
+import productReducer from "./product/productReducer";
 
 let logger = () => (next) => (action) => {
     //currying in javasript where we pass function as input and recieve function as output
@@ -21,7 +21,7 @@ let logger = () => (next) => (action) => {
 export default createStore(
     combineReducers({
         userReducer, //userReducer : userReducer       
-        //productReducer
+        productReducer
     }),
     {},//inital state if we want to set from store instead of reducer
     applyMiddleware(logger, thunk, promise)

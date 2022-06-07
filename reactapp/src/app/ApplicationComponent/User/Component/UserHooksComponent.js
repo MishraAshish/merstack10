@@ -18,13 +18,27 @@ let User = (props)=>{
     
     //userName = userObject.userName; // we can't do it as rendering is not done yet so no access to html element
 
-    //a hook that here gets called on first render - componentDidMount, we can access the view and assign the value to it
+    //a hook that here gets called on first render - shouldComponentUpdate, we can access the view and assign the value to it
     useEffect(()=>{
         inputUserName.current.value = user.userName;//
         inputPassword.current.value = user.password;
         inputStreet.current.value = user.street;
         inputMobile.current.value = user.mobile;
+
+        //if we return a callback function, it will be working as componentWillUnmount
+        return ()=>{
+            console.log("User Component is un mounted - we can do cleaning of subscriptions like clearinterval")
+        }
     })
+
+    //ComponentDidMount - once we initilize the value in second parameter
+    // useEffect((user)=>{
+    //     //console.log(user)        
+    //     inputUserName.current.value = user.userName;        
+    //     inputPassword.current.value = user.password;
+    //     inputStreet.current.value = user.street;
+    //     inputMobile.current.value = user.mobile;
+    // },{user}) 
 
     //in place of mapDispatch to props to publish the data to store we are using - useDispatch
     let dispatchToSaveUser = useDispatch();

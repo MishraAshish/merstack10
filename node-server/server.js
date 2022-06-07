@@ -12,6 +12,10 @@ let adminRouter = require("./routes/adminRouter");
 let userApp = express();
 let userRouter = require("./routes/userRouter");
 
+let productApp = express();
+let productRouter = require("./routes/productRouter");
+
+
 app.use(cors()) //setting cross origin access to true in our express api's
 // serve static files like images css using static middleware
 //app.use("/static", express.static("public"))
@@ -25,6 +29,9 @@ adminApp.use("/", adminRouter)
 
 app.use("/user", userApp); //signin api path => localhost:9000/user/api/signinup
 userApp.use("/", userRouter);
+
+app.use("/product", productApp); //signin api path => localhost:9000/product/api/saveproduct
+productApp.use("/", productRouter);
 
 
 app.use("/",defaultRouter);
