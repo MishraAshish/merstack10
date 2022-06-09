@@ -12,6 +12,7 @@ import NotFound from "./CommonComponents/NotFoundComponent";
 //import UserContainer from "./ApplicationComponent/User/Container/UserContainer";
 import User from "./ApplicationComponent/User/Component/UserHooksComponent";
 import ProductComponent from "./ApplicationComponent/Product/ProductComponent";
+import DisplayProduct from "./ApplicationComponent/Product/DisplayProducts";
 
 
 export default class AppComponent extends Component{
@@ -26,6 +27,7 @@ export default class AppComponent extends Component{
                         {/* <Route path="/user" element={<UserContainer />} /> */}
                         <Route path="/user" element={<User />} />
                         <Route path="/product" element={<ProductComponent />} />
+                        <Route path="/display" element={<DisplayProduct />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />} />

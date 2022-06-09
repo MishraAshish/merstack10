@@ -27,3 +27,32 @@ export const saveProduct = (product)=>{
         })
     }
 };
+
+export const addProduct = (products)=>{
+    return {
+        type : actionTypes.ADD_PRODUCTS_TOSTORE,
+        payload : {products}
+    }
+}
+
+export const fetchProducts = ()=>{
+    console.log("Product ");
+
+    return function (dispatch) {
+        //dispatch(loading(true));
+
+        window.fetch("http://localhost:9000/product/api/getproducts",{
+            method: 'GET' //rest method type             
+        })
+        .then(productresp => productresp.json())
+        .then((productresp)=>{
+            console.log("get products response ", productresp);
+            //dispatch(loading(false));
+            dispatch(addProduct(productresp))
+            
+        })
+        .catch((err)=>{
+            console.log("Error While Saving Product", err)
+        })
+    }
+};
