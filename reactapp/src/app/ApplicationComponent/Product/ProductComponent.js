@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"; 
 
 import { saveProduct } from "../../State/Product/ProductActions";
+import DisplayProduct from "./DisplayProducts";
 
 let Product = (props)=>{
     let defaultProduct = useSelector((state)=>state.productReducer.defaultProduct); //mapStateToProps
@@ -59,6 +60,10 @@ let Product = (props)=>{
                         onClick={saveProductClick}/>
                 </div>
             </section>
+            <hr/>
+            <div className={"col-md-10"}>
+                <DisplayProduct />
+            </div>
         </>
     )
 }

@@ -20,7 +20,7 @@ export const saveProduct = (product)=>{
         .then((productresp)=>{
             console.log("product save response ", productresp);
             //dispatch(loading(false));
-            //dispatch(fetchProducts());
+            dispatch(fetchProducts());
         })
         .catch((err)=>{
             console.log("Error While Saving Product", err)
