@@ -1,8 +1,16 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../../State/Cart/CartAction";
 
 let DisplayDetailedProduct = ({product})=>{
 
     let [showHide, toggleShowHide] = useState(false)
+
+    let dispatchToAddProduct = useDispatch();
+
+    let addProductToCart = (product)=>{
+        dispatchToAddProduct(addItemToCart(product));
+    }
 
     return(
         <ul className="product">

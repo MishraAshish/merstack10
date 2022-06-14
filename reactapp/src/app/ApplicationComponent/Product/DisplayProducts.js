@@ -9,9 +9,7 @@ let DisplayProduct = (props)=>{
 
     let productList = useSelector((state)=>state.productReducer.products)
 
-    useEffect(()=>{        
-        dispatchToFetch(fetchProducts())
-    },[])
+    useEffect(()=>{ dispatchToFetch(fetchProducts()) },[])
 
     console.log("productList ", productList)
     return(

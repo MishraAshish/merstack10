@@ -53,7 +53,7 @@ let User = (props)=>{
             street : inputStreet.current.value,
             mobile : inputMobile.current.value
         }
-        alert("User Object :" + JSON.stringify(userObj))
+//        alert("User Object :" + JSON.stringify(userObj))
 
         //dispatching sigin method which will further dispatch addUser action to store
         dispatchToSaveUser(signinSignupUser(userObj))
@@ -63,7 +63,7 @@ let User = (props)=>{
 
     return(
         <>
-            <h1>User Component Hooks</h1>
+            <h1>User Component</h1>
 
             <form className={"form col-md-10 userHook"} onSubmit={readFormData}>                
                 <label>

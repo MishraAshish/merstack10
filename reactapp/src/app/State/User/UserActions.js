@@ -1,6 +1,8 @@
 //this action file contains the actions and methods to make call to server
 import * as ActionTypes from "../actionTypes";
 
+import { getUserCart } from "../Cart/CartAction";
+
 export const addUserAction = (user)=>
 {
     return{
@@ -30,6 +32,7 @@ export const signinSignupUser = (userObject)=>{ //user object to sign in
             .then(response => response.json())//response from the server/ api - parsing to json
             .then((signedUser)=>{
                 dispatch(addUserAction(signedUser));//dispatching action with signed user 
+                dispatch(getUserCart(signedUser._id))
             })
             .catch((err)=>{
                 console.log("err in login ", err)

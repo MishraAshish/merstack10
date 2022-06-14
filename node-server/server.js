@@ -15,6 +15,9 @@ let userRouter = require("./routes/userRouter");
 let productApp = express();
 let productRouter = require("./routes/productRouter");
 
+let cartApp = express();
+let cartRouter = require("./routes/cartRouter");
+
 
 app.use(cors()) //setting cross origin access to true in our express api's
 // serve static files like images css using static middleware
@@ -32,6 +35,9 @@ userApp.use("/", userRouter);
 
 app.use("/product", productApp); //signin api path => localhost:9000/product/api/saveproduct
 productApp.use("/", productRouter);
+
+app.use("/cart", cartApp); 
+cartApp.use("/", cartRouter);
 
 
 app.use("/",defaultRouter);
