@@ -27,6 +27,7 @@ let Header = (props)=>{
                 <NavLink to="/product" className="button" activeclassname="success" >Product </NavLink> 
                 <NavLink to="/cart" className="button" activeclassname="success" >Cart </NavLink>
                 <NavLink to="/checkout" className="button" activeclassname="success" >Checkout </NavLink>
+                <NavLink to="/coupon" className="button" activeclassname="success" >Coupon </NavLink>
                     {/* <Dropdown as={ButtonGroup}>
                         <Button variant="success">Split Button</Button>
                         <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
