@@ -33,10 +33,10 @@ export default class Home extends PureComponent {
     componentDidMount(){
         console.log("componentDidMount")        
         //view is accessible
-        setTimeout(() => {
-            this.inputAddress.current.focus();
-            this.inputAddress.current.value = "New value after three seconds";
-        },3000)        
+        // setTimeout(() => {
+        //     this.inputAddress.current.focus();
+        //     this.inputAddress.current.value = "New value after three seconds";
+        // },3000)        
     }
 
     onchageHandler = (evt)=>{
