@@ -383,7 +383,7 @@ optgroup {
   /* background: './images/hm_pic4.jpg' right no-repeat; */
   background-repeat: no-repeat;
   background-position: right;
-  height: 435px;
+  height: 450px;
   width: auto;
   background-color: #046dc9;
   padding: 5px;  
@@ -403,11 +403,8 @@ optgroup {
 }
 
 .loadimage .feature{
-    color:#e2d845f6;
-    padding-bottom: 10px;
-    padding-top: 20px;
-    display: block;
-    padding-left: 21px;
+  color: #bfdce7f6;
+  font-size: 20px;
 }
 .headerInfo{
   padding: 7px 5px;
