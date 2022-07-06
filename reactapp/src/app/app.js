@@ -2,20 +2,95 @@ import React, { Component, PureComponent } from "react"; //React - default impor
 import "./app.css"
 import {BrowserRouter as Router, Routes, Redirect, Route} from "react-router-dom";// browser router from react
 
-import FooterComponent, {pi} from "./CommonComponents/FooterComponent";
-import DummyComponent from "./CommonComponents/DummyComponent";
-import HeaderComponent from "./CommonComponents/HeaderComponent";
-import Home from "./CommonComponents/HomeComponent";
-import About from "./CommonComponents/AboutComponent";
-import NotFound from "./CommonComponents/NotFoundComponent";
+import Loadable  from "react-loadable";//lazy loading of components with bundle splitting
+
+//import FooterComponent, {pi} from "./CommonComponents/FooterComponent";
+//import DummyComponent from "./CommonComponents/DummyComponent";
+//import HeaderComponent from "./CommonComponents/HeaderComponent";
+//import Home from "./CommonComponents/HomeComponent";
+//import About from "./CommonComponents/AboutComponent";
+//import NotFound from "./CommonComponents/NotFoundComponent";
 //import UserComponent from "./ApplicationComponent/User/Component/UserComponent";
 //import UserContainer from "./ApplicationComponent/User/Container/UserContainer";
-import User from "./ApplicationComponent/User/Component/UserHooksComponent";
-import ProductComponent from "./ApplicationComponent/Product/ProductComponent";
-import DisplayProduct from "./ApplicationComponent/Product/DisplayProducts";
-import CartComponent from "./ApplicationComponent/Cart/CartComponent";
-import Coupon from "./ApplicationComponent/Coupon/CouponComponent";
-import CheckoutComponent from "./ApplicationComponent/Checkout/CheckoutComponent";
+//import User from "./ApplicationComponent/User/Component/UserHooksComponent";
+//import ProductComponent from "./ApplicationComponent/Product/ProductComponent";
+// import DisplayProduct from "./ApplicationComponent/Product/DisplayProducts";
+// import CartComponent from "./ApplicationComponent/Cart/CartComponent";
+// import Coupon from "./ApplicationComponent/Coupon/CouponComponent";
+// import CheckoutComponent from "./ApplicationComponent/Checkout/CheckoutComponent";
+//import Hooks from "./hooks/hooksUsage";
+//memoization
+
+// functional component, used as placeholder
+//when lazy loaded modules delayed
+function Loading() {
+    return (
+        <div>
+            Loading Component in Lazy Manner...
+        </div>
+    )
+}
+
+const FooterComponent = Loadable({
+    loader: () => import("./CommonComponents/FooterComponent"),
+    loading: Loading,
+});
+
+
+const Home = Loadable({
+    loader: () => import("./CommonComponents/HomeComponent"),
+    loading: Loading,
+});
+
+const HeaderComponent = Loadable({
+    loader: () => import("./CommonComponents/HeaderComponent"),
+    loading: Loading,
+});
+
+const NotFound = Loadable({
+    loader: () => import("./CommonComponents/NotFoundComponent"),
+    loading: Loading,
+});
+
+const About = Loadable({
+    loader: () => import("./CommonComponents/AboutComponent"),
+    loading: Loading,
+});
+
+const User = Loadable({
+    loader: () => import("./ApplicationComponent/User/Component/UserHooksComponent"),
+    loading: Loading,
+});
+
+const ProductComponent = Loadable({
+    loader: () => import("./ApplicationComponent/Product/ProductComponent"),
+    loading: Loading,
+});
+
+const DisplayProduct = Loadable({
+    loader: () => import("./ApplicationComponent/Product/DisplayProducts"),
+    loading: Loading,
+});
+
+const CartComponent = Loadable({
+    loader: () => import("./ApplicationComponent/Cart/CartComponent"),
+    loading: Loading,
+});
+
+const Coupon = Loadable({
+    loader: () => import("./ApplicationComponent/Coupon/CouponComponent"),
+    loading: Loading,
+});
+
+const CheckoutComponent = Loadable({
+    loader: () => import("./ApplicationComponent/Checkout/CheckoutComponent"),
+    loading: Loading,
+});
+
+const Hooks = Loadable({
+    loader: () => import("./hooks/hooksUsage"),
+    loading: Loading,
+});
 
 export default class AppComponent extends Component{
 
@@ -34,6 +109,7 @@ export default class AppComponent extends Component{
                         <Route path="/coupon" element={<Coupon />} /> 
                         <Route path="/checkout" element={<CheckoutComponent />} /> 
                         <Route path="/about" element={<About />} />
+                        <Route path="/hook" element={<Hooks />} />
                         <Route path="/about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
