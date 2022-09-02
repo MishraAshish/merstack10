@@ -3,17 +3,17 @@
 //call stack visualization upto and extent
 
 function foo() {
-    //console.log("foo called")
+    console.log("foo called")
     throw new Error("Foo is not a good function"); 
 }
 
 function bar(){
-    //console.log("bar called")
+    console.log("bar called")
     foo(); //calling or invoking foo
 }
 
 function baz(){
-    //console.log("baz called")
+    console.log("baz called")
     bar(); //calling or invoking bar
 }
 
