@@ -2,6 +2,7 @@ console.log("Entry Point of our application");
 import React from "react";
 //import { render } from "react-dom";
 import * as ReactDOM from 'react-dom/client';
+import AppComponent from "./app/app";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

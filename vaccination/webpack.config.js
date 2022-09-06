@@ -8,68 +8,32 @@ HtmlWebpackPlugin = require('html-webpack-plugin'),
 webpackConfig = {
     //entry
         entry: SRC_DIR+"/index.js",
-    //output
-        output:{
-            path: DIST_DIR + "/app",
-            filename: "bundle.js",//the file generated in ES5 after minification, transpilation from (ES6, JSX and react code)
-            publicPath:"/app/" //all the public request coming to the front end will be served from here
-        },
-    //modules - js/css,style/
-    //modules
-    module:{
-        rules:[
-            {
-                test:/\.js?/,
-                include:SRC_DIR,
-                loader: "babel-loader", 
-                enforce: 'pre',
-                options: {
-                    presets: ["@babel/env", "@babel/react"],
-                    plugins: [
-                        "@babel/plugin-proposal-class-properties"
-                      ]
+        output: {
+            path: path.join(__dirname, '/dist'),
+            filename: 'index.bundle.js'
+          },
+           // webpack 5 comes with devServer which loads in development mode
+          devServer: {
+            port: 3000,
+            //watchContentBase: true
+          },
+           // Rules of how webpack will take our files, complie & bundle them for the browser 
+          module: {
+            rules: [
+              {
+                test: /\.(js|jsx)$/,
+                exclude: /nodeModules/,
+                use: {
+                  loader: 'babel-loader'
                 }
-            }
-        ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-          template: path.join(__dirname, "src", "index.html"),
-        }),
-      ],
-    optimization: {},
-    resolve: {
-        extensions: ['.js', '.jsx']
-    },
-
-    //dev-server configuration
-    devServer: { //this is to configure our webpack-dev-server to serve http requests
-        // contentBase:[
-        //     path.join(DIST_DIR),
-        //     path.join(SRC_DIR),
-        //     // and so on...
-        //   ] ,//__dirname+"/dist",
-        //hot: true, //enable hot module runtime, swap  modified files in dev server with browser, faster reload time
-        //inline: true, //include web pack runtime,  websocket, browser sync, module loader
-        host: "localhost", 
-        //host: "local.synergiticit.com",
-        port:9092,        
-        // https: true,
-    
-        //for supporting history api fallback
-        historyApiFallback: { //localhost:9092/home
-          index: '/'
-        },
-        //compress: true,
-        // 'Live-reloading' happens when you make changes to code
-        // dependency pointed to by 'entry' parameter explained earlier.
-        // To make live-reloading happen even when changes are made
-        // to the static html pages in 'contentBase', add 
-        // 'watchContentBase'
-        // watchContentBase: true
-    },
-    //devtool: 'source-map', //this will give us a copy of human readable format of files basically all files that we used
-    //mode: 'production'
+              },
+              {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+              }
+            ]
+          },
+          plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
 };
 
 module.exports = webpackConfig;
