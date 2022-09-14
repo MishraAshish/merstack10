@@ -5,6 +5,7 @@
 //this allows to inject middlewares like thunk, promise in application 
 
 import {createStore, combineReducers, applyMiddleware} from "redux";
+import { configureStore } from '@reduxjs/toolkit';
 import thunk from "redux-thunk"; //is used to pipeline the dispatched objects and give us a feeling of sync execution by being async
 import promise from "redux-promise-middleware";//is used to make calls to the server using promise
 //axios - another library to make server calls with async await
@@ -20,17 +21,19 @@ let logger = () => (next) => (action) => {
     next(action); //move to the actual execution
 };
 
-export default createStore(
-    combineReducers({
-        userReducer, //userReducer : userReducer       
-        productReducer,
-        cartReducer,
-        couponReducer
-    }),
-    {},//inital state if we want to set from store instead of reducer
-    applyMiddleware(logger, thunk, promise)
-)
+const rootReducer =   combineReducers({
+    userReducer, //userReducer : userReducer       
+    productReducer,
+    cartReducer,
+    couponReducer
+});
 
+
+export default configureStore({
+    reducer : rootReducer
+    },
+{},//inital state if we want to set from store instead of reducer
+applyMiddleware(logger, thunk, promise))
 
 
 //state directory - represents everything that we need to implement for reducer to maintain data

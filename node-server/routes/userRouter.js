@@ -6,7 +6,6 @@ let UserDataModel = require("../dataModel/userDataModel");
 //user signin signup api
 router.post("/api/signinup", (req, res)=>{ //localhost:9000/user/api/signinup
     //req.body will have : userName, password, street, mobile
-
     UserDataModel.findOne({userName : req.body.userName}, (err, userdata)=>{
         if(err){
             console.log("err ", err);

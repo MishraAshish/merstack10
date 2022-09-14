@@ -6,8 +6,6 @@ HtmlWebpackPlugin = require('html-webpack-plugin'),
 //UglifyJSPlugin = require('uglifyjs-webpack-plugin'), //to remove extra spaces, unused variables, commented code etc (minification)
 
 webpackConfig = {
-    //entry
-        entry: SRC_DIR+"/index.js",
         output: {
             path: path.join(__dirname, '/dist'),
             filename: 'index.bundle.js'
